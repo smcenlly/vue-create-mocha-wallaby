@@ -10,11 +10,13 @@ module.exports = function (wallaby) {
     files: [
       { pattern: 'node_modules/vue/dist/vue.js', instrument: false },
       { pattern: 'node_modules/babel-polyfill/dist/polyfill.js', instrument: false },
+      { pattern: '.postcssrc.js', instrument: false, load: false },
       { pattern: 'src/**/*.*', load: false }
     ],
 
     env: {
-      type: 'browser'
+      type: 'browser',
+      kind: 'chrome'
     },
 
     tests: [
