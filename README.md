@@ -1,33 +1,26 @@
 # vue-create-mocha-wallaby
+
 Vue-Cli project with Mocha and Wallaby
 
-## Setup
+## Setup with fresh modules
+
 ```
 $ yarn
 ```
 
 ## Test from the command line
+
 ```
 $ yarn test:unit
 ```
 
-Shows two passing tests
+Shows two passing and seven failing tests
 
 ## Test with Wallaby.js in VS Code
 
-Shows for Chai.spec.js
+Shows in Wallaby.js Tests console
 
 ```
-Error: Cannot find module '1'
-SyntaxError: Unexpected token '>'
-at http://localhost:57938/____wallaby-bundle.js?1526545881738&wallabyFileId=bundle:291
-...
-```
-
-Shows for HelloWorld.spec.js
-
-```
-Error: Module build failed: Error: No PostCSS Config found in: ./src/components
-at /Users/fritz/Developer/test-vue-mocha-wallaby/vue-create-mocha-wallaby/node_modules/postcss-load-config/index.js:51:26
+[Error] ​​Postprocessor run failure: compilation.hooks[name].intercept is not a function​​
 ...
 ```
