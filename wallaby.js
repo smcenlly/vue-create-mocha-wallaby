@@ -3,6 +3,10 @@ const wallabyWebpack = require('wallaby-webpack');
 
 module.exports = function (wallaby) {
   webpackConfig.resolve.alias = { '@': require('path').join(wallaby.projectCacheDir, 'src') }
+  webpackConfig.plugins = webpackConfig.plugins
+    .filter(p => 
+      p.constructor.name !== 'ProgressPlugin' && 
+      p.constructor.name !== 'HotModuleReplacementPlugin');
 
   const wallabyPostprocessor = wallabyWebpack(webpackConfig)
 
@@ -25,6 +29,8 @@ module.exports = function (wallaby) {
 
     postprocessor: wallabyPostprocessor,
 
+    testFramework: 'mocha',
+
     setup: function () {
       // eslint-disable-next-line
       Vue.config.errorHandler = function (err) {
@@ -36,6 +42,7 @@ module.exports = function (wallaby) {
     hints: {
       ignoreCoverage: /ignore coverage/
     },
+
     compilers: {
       '**/*.js': wallaby.compilers.babel(),
       '**/*.vue': require('wallaby-vue-compiler')(wallaby.compilers.babel({}))
